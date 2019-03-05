@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>Start Survey</title>
+  </head>
+  <body>
+    <h1>{{ survey_title }}</h1>
+    <p>{{ survey_description }}</p>
+    <form action="/questions/0" action="POST">
+      <button>Start Survey</button>
+    </form>
+  </body>
+</html>
