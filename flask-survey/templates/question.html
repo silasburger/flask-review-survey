@@ -1,25 +1,13 @@
-<!DOCTYPE html>
-<html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
-    <title>Question # {{ question_num }}</title>
-  </head>
-  <body>
-    <h1>{{ question }}</h1>
-    <form action="question/{{ question_num }}" method="POST">
-      <fieldset>
-        {% for answer in choices %}
-        <label for="{{ answer }}">{{ answer }}</label>
-        <input
-          type="radio"
-          id="{{ answer }}"
-          name="answer"
-          value="{{ answer }}"
-        />
-        {% endfor %}
-      </fieldset>
-    </form>
-  </body>
-</html>
+{% extends "base.html" %} {% block content %}
+<h1>{{ survey_title }}</h1>
+<p>{{ question }}</p>
+<form action="/questions/{{ question_num + 1}}" method="POST">
+  <fieldset>
+    {% for answer in choices %}
+      <input name="question_response" type="radio" id="{{answer}}" value={{answer}} required/>
+      <label for="{{ answer }}">{{ answer }}</label>
+    {% endfor %}
+  </fieldset>
+  <button>Submit</button>
+</form>
+{% endblock %}
